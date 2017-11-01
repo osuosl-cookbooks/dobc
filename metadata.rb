@@ -8,4 +8,7 @@ description      'Installs/Configures dobc'
 long_description 'Installs/Configures dobc'
 version          '0.1.0'
 
+depends          'firewall'
+depends          'osl-docker'
+
 supports         'centos', '~> 7.0'

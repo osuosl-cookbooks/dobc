@@ -2,4 +2,5 @@
 suites:
   - name: default
     run_list:
+      - recipe[dobc_test]
       - recipe[dobc::default]
