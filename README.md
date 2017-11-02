@@ -1,9 +1,7 @@
 dobc Cookbook
 =============
-TODO: Enter the cookbook description here.
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+This cookbook deploys docker and sets up ssh shell environments for use in DevOps Bootcamp
 
 Requirements
 ------------

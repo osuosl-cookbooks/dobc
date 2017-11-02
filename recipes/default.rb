@@ -15,4 +15,18 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+node.default['firewall']['docker']['range']['4'] = %w(0.0.0.0)
+node.default['firewall']['docker']['expose_ports'] = true
 
+include_recipe 'osl-docker'
+include_recipe 'firewall::docker'
+
+%w(
+  start-all.sh
+  start-container.sh
+  stop-all.sh
+).each do |file|
+  cookbook_file ::File.join('/usr/local/bin', file) do
+    mode '0755'
+  end
+end
