@@ -13,7 +13,7 @@ end
 end
 
 describe command('docker ps --format "{{.Names}}:{{.Status}}"') do
-  its(:stdout) { should match(/^dobc-3300[01]:Up/) }
+  its(:stdout) { should match(/^dobc-0[01]:Up/) }
 end
 
 ssh_cmd = 'sshpass -p password ssh -p 33000 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ' \
@@ -24,16 +24,16 @@ describe command(ssh_cmd) do
   its(:stdout) { should match(/^dobc$/) }
 end
 
-describe command('docker stop dobc-33000') do
+describe command('docker stop dobc-00') do
   its(:exit_status) { should eq 0 }
 end
 
-describe command('/usr/local/bin/start-container.sh /root/passwords.csv 33000') do
+describe command('/usr/local/bin/start-container.sh /root/passwords.csv 00') do
   its(:exit_status) { should eq 0 }
 end
 
 describe command('docker ps --format "{{.Names}}:{{.Status}}"') do
-  its(:stdout) { should match(/^dobc-3300[01]:Up/) }
+  its(:stdout) { should match(/^dobc-0[01]:Up/) }
 end
 
 describe command('/usr/local/bin/stop-all.sh /root/passwords.csv') do
@@ -41,5 +41,5 @@ describe command('/usr/local/bin/stop-all.sh /root/passwords.csv') do
 end
 
 describe command('docker ps --format "{{.Names}}:{{.Status}}"') do
-  its(:stdout) { should_not match(/^dobc-3300[01]:Up/) }
+  its(:stdout) { should_not match(/^dobc-0[01]:Up/) }
 end
