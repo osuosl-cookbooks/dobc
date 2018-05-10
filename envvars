@@ -1,0 +1,4 @@
+cookbook=dobc
+version=1.0.1
+envs=*
+pr_link=https://github.com/osuosl-cookbooks/dobc/pull/2
