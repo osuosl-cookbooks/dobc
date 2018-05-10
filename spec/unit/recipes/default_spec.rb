@@ -10,6 +10,7 @@ describe 'dobc::default' do
   %w(
     start-all.sh
     start-container.sh
+    start-mysql.sh
     stop-all.sh
   ).each do |file|
     it do

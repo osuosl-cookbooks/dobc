@@ -24,6 +24,7 @@ include_recipe 'firewall::docker'
 %w(
   start-all.sh
   start-container.sh
+  start-mysql.sh
   stop-all.sh
 ).each do |file|
   cookbook_file ::File.join('/usr/local/bin', file) do
