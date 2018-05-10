@@ -1,4 +1,6 @@
 ---
+driver:
+  flavor_ref: 'm1.xlarge'
 suites:
   - name: default
     run_list:
