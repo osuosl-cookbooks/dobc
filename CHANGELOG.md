@@ -3,6 +3,10 @@ dobc CHANGELOG
 This file is used to list changes made in each version of the
 dobc cookbook.
 
+2.0.0 (2018-10-16)
+------------------
+- Chef 13 compatibility
+
 1.0.2 (2018-05-10)
 ------------------
 - Setup MySQL containers for each shell container
