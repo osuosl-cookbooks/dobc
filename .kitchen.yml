@@ -6,3 +6,5 @@ suites:
     run_list:
       - recipe[dobc_test]
       - recipe[dobc::default]
+verifier:
+  name: inspec
