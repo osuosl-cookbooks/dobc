@@ -7,6 +7,10 @@ describe 'dobc::default' do
   it 'converges successfully' do
     expect { chef_run }.to_not raise_error
   end
+
+  it { expect(chef_run).to include_recipe('osl-docker') }
+  it { expect(chef_run).to include_recipe('firewall::docker') }
+
   %w(
     start-all.sh
     start-container.sh
