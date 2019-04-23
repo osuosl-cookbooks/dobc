@@ -6,7 +6,7 @@ while IFS=, read -r port password ; do
       -p "340${port}":8080 \
       -h dobc --rm -e DOBC_PASSWORD="${password}" \
       --name=dobc-"${port}" -d \
-      --device-write-bps /dev/vda:20mb \
+      --device-write-bps /dev/sda:20mb \
       osuosl/dobc-centos
   fi
 done < "$1"
