@@ -25,9 +25,22 @@ end
   end
 end
 
-describe command('docker ps --format "{{.Names}}:{{.Status}}"') do
-  its(:stdout) { should match(/^dobc-0[01]:Up/) }
-  its(:stdout) { should match(/^mysql-0[01]:Up/) }
+%w( dobc-00 dobc-01 mysql-00 mysql-01 ).each do |cont|
+  describe docker_container(name: cont) do
+    it { should exist }
+    it { should be_running }
+    its('id') { should_not eq '' }
+    case cont
+    when 'dobc-00'
+      its('ports') { should eq '0.0.0.0:33000->22/tcp, 0.0.0.0:34000->8080/tcp' }
+    when 'dobc-01'
+      its('ports') { should eq '0.0.0.0:33001->22/tcp, 0.0.0.0:34001->8080/tcp' }
+    when 'mysql-00'
+      its('ports') { should eq '3306/tcp' }
+    when 'mysql-01'
+      its('ports') { should eq '3306/tcp' }
+    end
+  end
 end
 
 script = 'sshpass -p password ssh -p 33000 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ' \
@@ -44,6 +57,10 @@ end
   describe command("docker stop #{cmd}-00") do
     its(:exit_status) { should eq 0 }
   end
+  describe docker_container(name: "#{cmd}-00") do
+    it { should_not exist }
+    it { should_not be_running }
+  end
 end
 
 %w( start-container.sh start-mysql.sh ).each do |file|
@@ -53,9 +70,11 @@ end
   end
 end
 
-describe command('docker ps --format "{{.Names}}:{{.Status}}"') do
-  its(:stdout) { should match(/^dobc-0[01]:Up/) }
-  its(:stdout) { should match(/^mysql-0[01]:Up/) }
+%w( dobc-00 dobc-01 mysql-00 mysql-01 ).each do |cont|
+  describe docker_container(name: cont) do
+    it { should exist }
+    it { should be_running }
+  end
 end
 
 script = ::File.join(script_path, 'stop-all.sh')
@@ -63,7 +82,9 @@ describe command("#{script} #{pass_csv_path}") do
   its(:exit_status) { should eq 0 }
 end
 
-describe command('docker ps --format "{{.Names}}:{{.Status}}"') do
-  its(:stdout) { should_not match(/^dobc-0[01]:Up/) }
-  its(:stdout) { should_not match(/^mysql-0[01]:Up/) }
+%w( dobc-00 dobc-01 mysql-00 mysql-01 ).each do |cont|
+  describe docker_container(name: cont) do
+    it { should_not exist }
+    it { should_not be_running }
+  end
 end
