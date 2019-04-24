@@ -3,6 +3,10 @@ dobc CHANGELOG
 This file is used to list changes made in each version of the
 dobc cookbook.
 
+2.0.1 (2019-04-24)
+------------------
+- Vancelot/inspec migration
+
 2.0.0 (2018-10-16)
 ------------------
 - Chef 13 compatibility
