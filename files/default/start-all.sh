@@ -3,7 +3,7 @@ while IFS=, read -r port password ; do
   docker run -d --rm \
     --name=mysql-"${port}" \
     -e MYSQL_ROOT_PASSWORD=dobc \
-    mariadb:10.3 \
+    mariadb:10.4 \
     --key_buffer=16M \
     --innodb_buffer_pool_size=32M \
     --query_cache_size=16M \
