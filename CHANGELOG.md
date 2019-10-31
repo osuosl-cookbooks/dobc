@@ -3,6 +3,10 @@ dobc CHANGELOG
 This file is used to list changes made in each version of the
 dobc cookbook.
 
+2.0.2 (2019-10-31)
+------------------
+- Update to mariadb:10.4 container
+
 2.0.1 (2019-04-24)
 ------------------
 - Vancelot/inspec migration
