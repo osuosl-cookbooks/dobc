@@ -3,6 +3,10 @@ dobc CHANGELOG
 This file is used to list changes made in each version of the
 dobc cookbook.
 
+2.0.4 (2020-01-07)
+------------------
+- Chef 14 post-migration fixes
+
 2.0.3 (2020-01-07)
 ------------------
 - Chef 14 compatibility fixes

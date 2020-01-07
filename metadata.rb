@@ -7,7 +7,7 @@ issues_url       'https://github.com/osuosl-cookbooks/dobc/issues'
 source_url       'https://github.com/osuosl-cookbooks/dobc'
 description      'Installs/Configures dobc'
 long_description 'Installs/Configures dobc'
-version          '2.0.3'
+version          '2.0.4'
 
 depends          'firewall'
 depends          'osl-docker'
