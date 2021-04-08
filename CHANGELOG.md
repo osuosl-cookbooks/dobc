@@ -3,6 +3,10 @@ dobc CHANGELOG
 This file is used to list changes made in each version of the
 dobc cookbook.
 
+2.2.0 (2021-04-08)
+------------------
+- Update Chef dependency to >= 16
+
 2.1.0 (2020-09-25)
 ------------------
 - Chef 16 fixes
