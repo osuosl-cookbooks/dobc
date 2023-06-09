@@ -13,3 +13,4 @@ depends          'firewall'
 depends          'osl-docker'
 
 supports         'centos', '~> 7.0'
+supports         'almalinux', '~> 8.0'
