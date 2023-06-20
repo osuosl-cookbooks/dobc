@@ -9,8 +9,8 @@ description      'Installs/Configures dobc'
 version          '2.2.0'
 
 depends          'base'
-depends          'firewall'
 depends          'osl-docker'
+depends          'osl-repos'
 
 supports         'centos', '~> 7.0'
 supports         'almalinux', '~> 8.0'

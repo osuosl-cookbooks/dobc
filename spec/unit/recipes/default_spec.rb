@@ -9,7 +9,6 @@ describe 'dobc::default' do
   end
 
   it { expect(chef_run).to include_recipe('osl-docker') }
-  it { expect(chef_run).to include_recipe('firewall::docker') }
 
   %w(
     start-all.sh

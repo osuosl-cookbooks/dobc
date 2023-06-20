@@ -6,5 +6,5 @@ description      'Installs/Configures dobc_test'
 version          '0.1.0'
 
 depends          'base'
-depends          'firewall'
 depends          'osl-docker'
+depends          'osl-repos'

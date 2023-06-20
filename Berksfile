@@ -1,7 +1,6 @@
 source 'https://supermarket.chef.io'
 
 cookbook 'base', git: 'git@github.com:osuosl-cookbooks/base'
-cookbook 'firewall', git: 'git@github.com:osuosl-cookbooks/firewall'
 cookbook 'osl-docker', git: 'git@github.com:osuosl-cookbooks/osl-docker'
 cookbook 'osl-firewall', git: 'git@github.com:osuosl-cookbooks/osl-firewall'
 cookbook 'osl-gpu', git: 'git@github.com:osuosl-cookbooks/osl-gpu', branch: 'main'

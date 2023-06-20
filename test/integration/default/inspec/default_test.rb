@@ -32,9 +32,9 @@ end
     its('id') { should_not eq '' }
     case cont
     when 'dobc-00'
-      its('ports') { should eq '0.0.0.0:33000->22/tcp, 0.0.0.0:34000->8080/tcp' }
+      its('ports') { should eq '0.0.0.0:33000->22/tcp, :::33000->22/tcp,0.0.0.0:34000->8080/tcp, :::34000->8080/tcp' }
     when 'dobc-01'
-      its('ports') { should eq '0.0.0.0:33001->22/tcp, 0.0.0.0:34001->8080/tcp' }
+      its('ports') { should eq '0.0.0.0:33001->22/tcp, :::33001->22/tcp, 0.0.0.0:34001->8080/tcp, :::34001->8080/tcp' }
     when 'mysql-00'
       its('ports') { should eq '3306/tcp' }
     when 'mysql-01'

@@ -15,11 +15,15 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-node.default['firewall']['docker']['range']['4'] = %w(0.0.0.0)
-node.default['firewall']['docker']['expose_ports'] = true
 
 include_recipe 'osl-docker'
-include_recipe 'firewall::docker'
+#include_recipe 'firewall::docker'
+
+# Override resource in osl-docker::default?
+osl_firewall_docker 'docker firewall' do
+  allowed_ipv4 %w(0.0.0.0)
+  expose_ports true
+end
 
 %w(
   start-all.sh
