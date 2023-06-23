@@ -21,6 +21,13 @@ describe 'dobc::default' do
     end
   end
 
+  it do
+    expect(chef_run).to accept_osl_firewall_docker('docker firewall').with(
+      allowed_ipv4: %w(0.0.0.0),
+      expose_ports: true
+    )
+  end
+
   context 'almalinux 8' do
     cached(:chef_run) do
       ChefSpec::SoloRunner.new(ALMA_8).converge(described_recipe)
