@@ -17,9 +17,7 @@
 # limitations under the License.
 
 include_recipe 'osl-docker'
-#include_recipe 'firewall::docker'
 
-# Override resource in osl-docker::default?
 osl_firewall_docker 'docker firewall' do
   allowed_ipv4 %w(0.0.0.0)
   expose_ports true
