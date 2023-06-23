@@ -23,7 +23,7 @@ control 'execute start-all' do
   end
 end
 
-control "containers and ports" do
+control 'containers and ports' do
   %w(33000 33001 34000 34001).each do |p|
     describe port(p) do
       it { should be_listening }
@@ -59,7 +59,7 @@ control "containers and ports" do
   end
 end
 
-control "stop container-00" do
+control 'stop container-00' do
   %w( dobc mysql ).each do |cmd|
     describe command("docker stop #{cmd}-00") do
       its(:exit_status) { should eq 0 }
