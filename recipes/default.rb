@@ -2,7 +2,7 @@
 # Cookbook:: dobc
 # Recipe:: default
 #
-# Copyright:: 2017-2021, Oregon State University
+# Copyright:: 2017-2023, Oregon State University
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,11 +15,13 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-node.default['firewall']['docker']['range']['4'] = %w(0.0.0.0)
-node.default['firewall']['docker']['expose_ports'] = true
 
 include_recipe 'osl-docker'
-include_recipe 'firewall::docker'
+
+osl_firewall_docker 'docker firewall' do
+  allowed_ipv4 %w(0.0.0.0)
+  expose_ports true
+end
 
 %w(
   start-all.sh

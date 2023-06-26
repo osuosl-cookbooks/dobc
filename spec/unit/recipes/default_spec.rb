@@ -9,7 +9,6 @@ describe 'dobc::default' do
   end
 
   it { expect(chef_run).to include_recipe('osl-docker') }
-  it { expect(chef_run).to include_recipe('firewall::docker') }
 
   %w(
     start-all.sh
@@ -19,6 +18,22 @@ describe 'dobc::default' do
   ).each do |file|
     it do
       expect(chef_run).to create_cookbook_file(::File.join('/usr/local/bin', file)).with(mode: '0755')
+    end
+  end
+
+  it do
+    expect(chef_run).to accept_osl_firewall_docker('docker firewall').with(
+      allowed_ipv4: %w(0.0.0.0),
+      expose_ports: true
+    )
+  end
+
+  context 'almalinux 8' do
+    cached(:chef_run) do
+      ChefSpec::SoloRunner.new(ALMA_8).converge(described_recipe)
+    end
+    it 'converges successfully' do
+      expect { chef_run }.to_not raise_error
     end
   end
 end
