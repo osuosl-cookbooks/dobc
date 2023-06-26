@@ -12,5 +12,4 @@ depends          'base'
 depends          'osl-docker'
 depends          'osl-repos'
 
-supports         'centos', '~> 7.0'
 supports         'almalinux', '~> 8.0'
