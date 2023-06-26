@@ -6,7 +6,7 @@ chef_version     '>= 16.0'
 issues_url       'https://github.com/osuosl-cookbooks/dobc/issues'
 source_url       'https://github.com/osuosl-cookbooks/dobc'
 description      'Installs/Configures dobc'
-version          '2.2.0'
+version          '3.0.0'
 
 depends          'base'
 depends          'osl-docker'
